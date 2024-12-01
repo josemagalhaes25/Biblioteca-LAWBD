@@ -12,78 +12,139 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css">
     <style>
-        /* Parallax style */
-        .parallax {
-            background-image: url('https://via.placeholder.com/1500x500'); /* Altere para a URL da sua imagem */
-            height: 500px;
-            background-position: center;
-            background-attachment: fixed; /* Isso cria o efeito parallax */
-            background-size: cover;
-        }
-
-        /* Outras propriedades de estilo para a página */
+        /* Estilo da Página */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f7fa; /* Fundo claro */
         }
 
         .container {
-            margin-top: 20px;
+            margin-top: 30px;
         }
+
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #007bff, #28a745);
+            color: white;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+            .header h1 {
+                font-size: 2.5rem;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+
+            .header p {
+                font-size: 1.2rem;
+                line-height: 1.5;
+                max-width: 600px;
+                margin: 0 auto;
+            }
 
         .text-center {
             text-align: center;
         }
 
-        /* Adicionando o estilo para os botões */
+        /* Estilo dos Botões */
         .btn {
-            margin: 10px;
-            padding: 10px 20px;
-            border-radius: 5px;
+            margin: 15px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-transform: uppercase;
         }
 
         .btn-primary {
             background-color: #007bff;
             color: white;
+            border: none;
         }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
 
         .btn-secondary {
             background-color: #6c757d;
             color: white;
+            border: none;
         }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
 
         .btn-success {
             background-color: #28a745;
             color: white;
+            border: none;
         }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
+
+        .welcome-section {
+            margin-top: 50px;
+            padding: 30px 20px;
+            background-color: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+            .welcome-section h2 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 15px;
+            }
+
+            .welcome-section p {
+                font-size: 1rem;
+                color: #666;
+                margin-bottom: 25px;
+            }
     </style>
 </head>
 <body>
 
-    <!-- Parallax -->
-    <div class="parallax"></div>
+    <!-- Cabeçalho com Boas-Vindas -->
+    <div class="header">
+        <h1>Bem-vindo à Biblioteca Virtual</h1>
+        <p>Descubra um mundo de conhecimento, explore os nossos livros e aproveite para expandir os seus horizontes!</p>
+    </div>
 
     <div class="container">
         <!-- Mensagem de Sucesso após login -->
         @if (TempData["SuccessMessage"] != null)
         {
-            <div class="alert alert-success">
+            <div class="alert alert-success text-center">
                 @TempData["SuccessMessage"]
             </div>
         }
 
-        <!-- Botões de navegação -->
-        <div class="text-center">
+        <!-- Secção de Boas-Vindas -->
+        <div class="welcome-section">
+            <h2>Entre no Mundo da Leitura</h2>
+            <p>Registe-se agora ou faça login para aceder à sua conta e explorar a nossa colecção de livros digitais.</p>
+
+            <!-- Botões de Navegação -->
             @if (Context.Session.GetString("UserId") == null)
             {
-                <!-- Usuário não está logado -->
+                <!-- Utilizador não está autenticado -->
                 <a href="/Account/Login" class="btn btn-primary">Entrar</a>
                 <a href="/Account/SignUp" class="btn btn-secondary">Registar</a>
             }
             else
             {
-                <!-- Usuário está logado -->
+                <!-- Utilizador autenticado -->
                 <a href="/Dashboard" class="btn btn-success">Dashboard</a>
             }
         </div>

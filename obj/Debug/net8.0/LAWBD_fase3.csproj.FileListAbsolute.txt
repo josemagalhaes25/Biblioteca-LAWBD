@@ -282,3 +282,4 @@ C:\Users\Utilizador\Desktop\4ºAno\LAWBD\LAWBD_fase3\obj\Debug\net8.0\refint\LAW
 C:\Users\Utilizador\Desktop\4ºAno\LAWBD\LAWBD_fase3\obj\Debug\net8.0\LAWBD_fase3.pdb
 C:\Users\Utilizador\Desktop\4ºAno\LAWBD\LAWBD_fase3\obj\Debug\net8.0\LAWBD_fase3.genruntimeconfig.cache
 C:\Users\Utilizador\Desktop\4ºAno\LAWBD\LAWBD_fase3\obj\Debug\net8.0\ref\LAWBD_fase3.dll
+C:\Users\Utilizador\Desktop\4ºAno\LAWBD\LAWBD_fase3\obj\Debug\net8.0\LAWBD_fase3.sourcelink.json

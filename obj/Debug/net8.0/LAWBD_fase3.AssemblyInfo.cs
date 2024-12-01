@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LAWBD_fase3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56d037e698f44b90c1d223f9a1cc5c8eafaf109f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3ab0c664a78c87268a010e4988cf6348e96c169c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LAWBD_fase3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LAWBD_fase3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
