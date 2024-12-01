@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "Painel Inicial";
+}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f9fc;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #b2ebf2;
+            border-radius: 8px;
+            margin: 10px;
+        }
+
+            .navbar button, .navbar a {
+                background-color: transparent;
+                border: 2px solid #00bcd4;
+                border-radius: 25px;
+                color: #00bcd4;
+                padding: 10px 20px;
+                margin-right: 10px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+                .navbar button:hover, .navbar a:hover {
+                    background-color: #00bcd4;
+                    color: white;
+                }
+
+            .navbar .active {
+                background-color: #00bcd4;
+                color: white;
+            }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+            .card .info-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+                .card .info-item span {
+                    font-weight: bold;
+                    color: #00bcd4;
+                    margin-right: 10px;
+                    width: 80px;
+                }
+
+                .card .info-item .password {
+                    display: flex;
+                    align-items: center;
+                }
+
+                    .card .info-item .password button {
+                        margin-left: 10px;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                    }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <button class="active">Perfil</button>
+            <a href="/Dashboard/Library">Biblioteca</a>
+            <a href="/Dashboard/MyBooks">Os Meus Livros</a>
+        </div>
+        <div>
+            <a href="/Dashboard/Notifications">
+                <img src="https://img.icons8.com/ios-glyphs/30/00bcd4/appointment-reminders.png" alt="Notificações">
+            </a>
+            <a href="/Account/Logout" class="btn">Sair</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="card">
+            <h3>Meu Perfil</h3>
+            <div class="info-item">
+                <span>ID:</span>
+                <span>joaoalfredo13</span>
+            </div>
+            <div class="info-item">
+                <span>Nome:</span>
+                <span>João Alfredo</span>
+            </div>
+            <div class="info-item">
+                <span>Email:</span>
+                <span>joaoalfredo13@gmail.com</span>
+            </div>
+            <div class="info-item password">
+                <span>Password:</span>
+                <span>********</span>
+                <button>
+                    <img src="https://img.icons8.com/ios-filled/20/000000/visible.png" alt="Mostrar">
+                </button>
+            </div>
+            <div class="info-item">
+                <span>Tipo:</span>
+                <span>Leitor</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

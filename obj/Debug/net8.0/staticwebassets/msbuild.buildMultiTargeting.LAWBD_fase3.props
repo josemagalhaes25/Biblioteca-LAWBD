@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LAWBD_fase3.props" />
+</Project>

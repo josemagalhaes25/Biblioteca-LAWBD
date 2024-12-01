@@ -1,0 +1,93 @@
+﻿@model LAWBD_fase3.Models.HomeViewModel
+
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <style>
+        /* Parallax style */
+        .parallax {
+            background-image: url('https://via.placeholder.com/1500x500'); /* Altere para a URL da sua imagem */
+            height: 500px;
+            background-position: center;
+            background-attachment: fixed; /* Isso cria o efeito parallax */
+            background-size: cover;
+        }
+
+        /* Outras propriedades de estilo para a página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Adicionando o estilo para os botões */
+        .btn {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Parallax -->
+    <div class="parallax"></div>
+
+    <div class="container">
+        <!-- Mensagem de Sucesso após login -->
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <!-- Botões de navegação -->
+        <div class="text-center">
+            @if (Context.Session.GetString("UserId") == null)
+            {
+                <!-- Usuário não está logado -->
+                <a href="/Account/Login" class="btn btn-primary">Entrar</a>
+                <a href="/Account/SignUp" class="btn btn-secondary">Registar</a>
+            }
+            else
+            {
+                <!-- Usuário está logado -->
+                <a href="/Dashboard" class="btn btn-success">Dashboard</a>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

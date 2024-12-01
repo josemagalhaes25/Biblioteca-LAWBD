@@ -1,0 +1,192 @@
+/* Atualizando o arquivo CSS conforme solicitado */
+
+/* Definir a cor de fundo da página com gradiente */
+body {
+    background: linear-gradient(to right, #d6e6f2, #f0f8ff); /* Gradiente de azul claro */
+    color: #333; /* Texto escuro para contraste */
+    font-family: Arial, sans-serif;
+    margin: 0; /* Remove margem padrão */
+    padding: 0; /* Remove padding padrão */
+}
+
+/* Configurações do HTML */
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Estilo do menu */
+.menu a {
+    color: #007BFF; /* Cor de link mais forte */
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .menu a:hover {
+        text-decoration: underline;
+    }
+
+/* Efeito de foco para botões */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Efeito de fade-in */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animação de flutuação de livros */
+.floating-book {
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes float {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 10px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+/* Efeito de digitação */
+.typing {
+    font-family: 'Courier', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid #000;
+    width: 0;
+    animation: typing 4s steps(40) 1s 1 normal both, blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCaret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* Efeito Parallax */
+.parallax {
+    background-image: url('https://via.placeholder.com/1500x500');
+    min-height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Card de livro */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+.card-body {
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+.btn-custom {
+    background-color: #00bcd4;
+    color: white;
+    border-radius: 5px;
+}
+
+    .btn-custom:hover {
+        background-color: #0097a7;
+        color: white;
+    }
+
+/* Definir a largura do conteúdo da página */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo para a imagem de fundo */
+img.floating-book {
+    width: 150px;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Estilo para o perfil */
+.perfil-container {
+    background-color: #f4f4f4; /* Fundo claro */
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    margin: 20px auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-detalhes {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Organiza as colunas */
+    row-gap: 10px;
+    column-gap: 15px;
+    font-size: 16px;
+}
+
+.perfil-item {
+    padding: 5px 0;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}

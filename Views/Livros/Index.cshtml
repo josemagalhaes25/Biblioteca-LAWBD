@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LAWBD_fase3.Models.Livro>
+
+<h1>Livros</h1>
+
+<!-- Formulário de Pesquisa -->
+<form method="get" asp-action="Index">
+    <input type="text" name="searchString" class="form-control" placeholder="Pesquisar livros..." value="@Context.Request.Query["searchString"]" />
+    <button type="submit" class="btn btn-primary mt-2">Pesquisar</button>
+</form>
+
+<a class="btn btn-primary mb-3" asp-action="Create">Novo Livro</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Categoria</th>
+            <th>Biblioteca</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.Autor</td>
+                <td>@item.Categoria.Nome</td>
+                <td>@item.Biblioteca.Nome</td>
+                <td>
+                    <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
