@@ -7,6 +7,7 @@
         public string Autor { get; set; }
         public int Ano { get; set; }
         public bool Disponivel { get; set; }
+        public byte[] Imagem { get; set; } // Imagem do livro
 
         // Relacionamento com Categoria
         public int CategoriaId { get; set; }

@@ -67,10 +67,20 @@ namespace LAWBD_fase3.Controllers
         // POST: Livros/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Autor,Ano,Disponivel,CategoriaId,BibliotecaId")] Livro livro)
+        public async Task<IActionResult> Create([Bind("Id,Titulo,Autor,Ano,Disponivel,CategoriaId,BibliotecaId")] Livro livro, IFormFile imagem)
         {
             if (ModelState.IsValid)
             {
+                // Se a imagem não for nula e tiver mais de 0 bytes, converte a imagem para um array de bytes
+                if (imagem != null && imagem.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await imagem.CopyToAsync(stream);
+                        livro.Imagem = stream.ToArray();
+                    }
+                }
+
                 _context.Add(livro);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -101,7 +111,7 @@ namespace LAWBD_fase3.Controllers
         // POST: Livros/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Autor,Ano,Disponivel,CategoriaId,BibliotecaId")] Livro livro)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Titulo,Autor,Ano,Disponivel,CategoriaId,BibliotecaId")] Livro livr, IFormFile imagem)
         {
             if (id != livro.Id)
             {
@@ -112,6 +122,20 @@ namespace LAWBD_fase3.Controllers
             {
                 try
                 {
+                    if (imagem != null && imagem.Length > 0)
+                    {
+                        using (var ms = new MemoryStream())
+                        {
+                            await imagem.CopyToAsync(ms);
+                            livro.Imagem = ms.ToArray();
+                        }
+                    }
+                    else
+                    {
+                        var existingLivro = await _context.Livros.AsNoTracking().FirstOrDefaultAsync(l => l.Id == id);
+                        livro.Imagem = existingLivro.Imagem;
+                    }
+
                     _context.Update(livro);
                     await _context.SaveChangesAsync();
                 }
@@ -131,6 +155,11 @@ namespace LAWBD_fase3.Controllers
             ViewData["BibliotecaId"] = new SelectList(_context.Bibliotecas, "Id", "Nome", livro.BibliotecaId);
             ViewData["CategoriaId"] = new SelectList(_context.Categorias, "Id", "Nome", livro.CategoriaId);
             return View(livro);
+
+            private bool LivroExists(int id)
+            {
+            return _context.Livros.Any(e => e.Id == id);
+            }
         }
 
         // GET: Livros/Delete/5
